@@ -72,7 +72,7 @@ Main tables:
     Example: `createdb -h localhost -p 5432 -U your_username health_tracker_app`
 4. Create a .env file. This project uses a .env file to store local PostgreSQL credentials, but it is not included in the GitHub repository because it contains private information. Each user must create their own .env file using .env.example as a template.
 5. Install any Python dependencies from requirements.txt. Example: `pip install -r requirements.txt`
-6. Run the schema.sql, final_data.sql, and indexes.sql files in the terminal. The sql/final_data.sql file is the dataset for the application, which is a synthetic health dataset.
+6. Run the schema.sql, final_data.sql, and indexes.sql files in the terminal. The sql/final_data.sql file is the dataset for the application, which is a synthetic health dataset. This loads the sample users, workouts, meals, activities, and recommendations into the PostgreSQL database.
     Example: 
     - `psql -h localhost -p 5432 -U your_username -d health_tracker_app -f sql/schema.sql`
     - `psql -h localhost -p 5432 -U your_username -d health_tracker_app -f sql/final_data.sql`
@@ -80,6 +80,16 @@ Main tables:
 7. While in the project folder directory, run the app.py file in the command line to start the application
     Example: `python app/app.py`
 
+## Reproduce Results
+
+Running the application with `python app/app.py` reproduces the main application behavior, including viewing recent workouts and meals, generating recommendations, and viewing index versus no-index plans through the menu options.
+
+To reproduce the standalone SQL query and index comparison results used for the report, run:
+
+```bash
+psql -h localhost -p 5432 -U your_username -d health_tracker_app -f sql/queries.sql
+psql -h localhost -p 5432 -U your_username -d health_tracker_app -f sql/index_comparison_tests.sql
+```
 
 ## Project Structure
 ```text
@@ -99,7 +109,6 @@ health-tracker-project/
     ├── final_data.sql
     ├── queries.sql
     └── index_comparison_tests.sql
-
-
+```
 
     
