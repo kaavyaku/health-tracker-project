@@ -71,23 +71,24 @@ Main tables:
 3. Create a PostgreSQL database named health_tracker_app
     Example: `createdb -h localhost -p 5432 -U your_username health_tracker_app`
 4. Create a .env file. This project uses a .env file to store local PostgreSQL credentials, but it is not included in the GitHub repository because it contains private information. Each user must create their own .env file using .env.example as a template.
-5. Install any Python dependencies
-6. Run the schema.sql, final_data.sql, and indexes.sql files in the terminal. The final_data.sql file is the dataset for the application, which is a synthetic health dataset.
+5. Install any Python dependencies from requirements.txt. Example: `pip install -r requirements.txt`
+6. Run the schema.sql, final_data.sql, and indexes.sql files in the terminal. The sql/final_data.sql file is the dataset for the application, which is a synthetic health dataset.
     Example: 
     - `psql -h localhost -p 5432 -U your_username -d health_tracker_app -f sql/schema.sql`
     - `psql -h localhost -p 5432 -U your_username -d health_tracker_app -f sql/final_data.sql`
     - `psql -h localhost -p 5432 -U your_username -d health_tracker_app -f sql/indexes.sql`
 7. While in the project folder directory, run the app.py file in the command line to start the application
-    Example: `python app.py`
+    Example: `python app/app.py`
 
 
 ## Project Structure
 ```text
 health-tracker-project/
 ├── .gitignore
-├── .env
+├── .env.example
 ├── README.md
 ├── run_comparisons.sh
+├── requirements.txt
 ├── app/
 │   └── app.py
 └── sql/
