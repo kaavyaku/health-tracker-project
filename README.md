@@ -1,5 +1,7 @@
 # Health Tracker App with PostgreSQL 
 
+## Kaavya Kumar - usc email: kaavyaku@usc.edu
+
 ## Overview
 This project is a health and fitness tracking application built on PostgreSQL. It stores user workout and meal data, generates personalized recommendations from past records, and supports broader analytics across groups of users. The main database internals focus is **indexing**, with demonstrations using both **B-tree** and **GIN** indexes.
 
